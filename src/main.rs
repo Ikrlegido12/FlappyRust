@@ -37,8 +37,8 @@ impl GameState {
         self.y_velocity += 9.8 * dt;
         self.y_position += self.y_velocity;
 
-        if self.y_position > 550.0 {
-            self.y_position = 550.0;
+        if self.y_position > 600.0 {
+            self.y_position = 600.0;
             self.y_velocity = 0.0;
         }
 
@@ -119,7 +119,7 @@ impl GameState {
         let mut rng = rand::thread_rng();
         
         // Ajustar el rango de generación aleatoria para la posición Y
-        let y_position = rng.gen_range(0.0..500.0);  // Incluye valores cercanos a cero
+        let y_position = rng.gen_range(-20.0..620.0);  // Incluye valores cercanos a cero
         
         let width = rng.gen_range(20.0..50.0);
         let height = rng.gen_range(20.0..50.0);
@@ -136,7 +136,7 @@ fn main() {
         .unwrap();
 
     let mut state = GameState::new();
-    let is_fullscreen = true; 
+    let is_fullscreen = false; 
 
     while let Some(event) = window.next() {
         if let Some(args) = event.update_args() {
