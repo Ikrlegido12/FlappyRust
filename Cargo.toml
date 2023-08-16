@@ -1,0 +1,9 @@
+[package]
+name = "FlappyRust"
+version = "0.1.0"
+edition = "2021"
+#Dependencias de Rust
+[dependencies]
+piston_window = "0.120.0"
+rand = "0.8.4"
+time = "0.2.27"
