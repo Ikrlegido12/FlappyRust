@@ -19,6 +19,7 @@ struct Object {
 }
 
 impl GameState {
+    
     fn new() -> Self {
         GameState {
             y_position: 100.0,          //Inicio de juego
@@ -66,7 +67,7 @@ impl GameState {
         self.objects.retain(|obj| obj.x_position + obj.width > 0.0);
 
         // Spawn de objetos con intervalo aleatorio
-        if self.last_object_spawn_time.elapsed() >= Duration::from_secs_f64(1.5) {
+        if self.last_object_spawn_time.elapsed() >= Duration::from_secs_f64(0.63) {
             self.spawn_random_object();
             self.last_object_spawn_time = Instant::now();
         }
@@ -123,7 +124,7 @@ impl GameState {
         
         let width = rng.gen_range(20.0..50.0);
         let height = rng.gen_range(20.0..50.0);
-        self.add_object(800.0, y_position, width, height);
+        self.add_object(1200.0, y_position, width, height);
     }
 }
 
@@ -136,7 +137,6 @@ fn main() {
         .unwrap();
 
     let mut state = GameState::new();
-    let is_fullscreen = false; 
 
     while let Some(event) = window.next() {
         if let Some(args) = event.update_args() {
@@ -150,6 +150,14 @@ fn main() {
         }
 
         if let Some(Button::Keyboard(Key::Space)) = event.press_args() {
+            state.jump();
+        }
+
+         if let Some(Button::Mouse(MouseButton::Left)) = event.press_args() {
+            state.jump();
+        }
+
+         if let Some(Button::Mouse(MouseButton::Right)) = event.press_args() {
             state.jump();
         }
 

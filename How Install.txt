@@ -1,0 +1,17 @@
+Español:
+
+1.- Ejecuta prerequisites.exe , 
+    si tienes descargado rust/cargo te saldra "[proceso terminado con el código 1 (0x00000001)]"
+
+2.- Elige la opcion por defecto (1).
+3.- Ejecuta start.bat
+4.- Juega.
+
+English:
+
+1.- Run prerequisites.exe , 
+    if you have downloaded rust/cargo you will get "[process terminated with code 1 (0x00000001)]".
+
+2.- Choose the default option (1).
+3.- Execute start.bat
+4.- Play.
